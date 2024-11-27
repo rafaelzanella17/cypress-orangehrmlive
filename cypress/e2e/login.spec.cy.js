@@ -13,7 +13,7 @@ describe('Orange HRM Tests', () => {
 
 
   it.only('Login - Sucess', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameFiels).type(userData.userSucess.username)
     cy.get(selectorsList.passwordFiels).type(userData.userSucess.password)
     cy.get(selectorsList.loginButton).click()
@@ -22,7 +22,7 @@ describe('Orange HRM Tests', () => {
   })  
   
   it('Login - Fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameFiels).type(userData.userFail.username)
     cy.get(selectorsList.passwordFiels).type(userData.userFail.password)
     cy.get(selectorsList.loginButton).click()
