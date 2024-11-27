@@ -1,3 +1,6 @@
+import userData from '../fixtures/users/user-data.json'
+
+
 describe('Orange HRM Tests', () => {
 
   const selectorsList = {
@@ -8,19 +11,20 @@ describe('Orange HRM Tests', () => {
     paragrafoInvalidCredenciais: '.oxd-alert-content-text',
   }
 
-  it('Login - Sucess', () => {
+
+  it.only('Login - Sucess', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.get(selectorsList.usernameFiels).type('Admin')
-    cy.get(selectorsList.passwordFiels).type('admin123')
+    cy.get(selectorsList.usernameFiels).type(userData.userSucess.username)
+    cy.get(selectorsList.passwordFiels).type(userData.userSucess.password)
     cy.get(selectorsList.loginButton).click()
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
     cy.get(selectorsList.sectionTitleTopBar).contains('Dashboard')
   })  
   
-  it.only('Login - Fail', () => {
+  it('Login - Fail', () => {
     cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    cy.get(selectorsList.usernameFiels).type('Admin')
-    cy.get(selectorsList.passwordFiels).type('admin1')
+    cy.get(selectorsList.usernameFiels).type(userData.userFail.username)
+    cy.get(selectorsList.passwordFiels).type(userData.userFail.password)
     cy.get(selectorsList.loginButton).click()
     cy.get(selectorsList.paragrafoInvalidCredenciais)
   })
