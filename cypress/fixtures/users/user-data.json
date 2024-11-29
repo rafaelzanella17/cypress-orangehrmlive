@@ -4,7 +4,7 @@
     "password": "admin123"
   },
   "userFail": {
-    "username": "teste",
+    "username": "Admin",
     "password": "teste123"
   }
 }
