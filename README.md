@@ -16,7 +16,7 @@ npm install
 
 >**NOTE:**
 >
-> Precisa tem o **nodejs** instalado
+> Precisa ter o **nodejs** instalado
 
 ## Running
 ```bash
